@@ -1,0 +1,17 @@
+# ⚠️This is a personal reupload of a college project⚠️
+
+# OWASP Penetration Testing Kit: Enhanced
+
+OWASP Penetration Testing Kit: Enhanced is a Firefox browser extension based penetration tool. A forked project that is built on top of an existing free and open-source software named OWASP Penetration Testing Kit. With 5 extra main features compared to the original version.
+
+Developed by Kwok Wing Hong
+
+## Installation Guide
+
+1, Clone the repository and unzip it
+
+2, Navigate to "about:debugging#/runtime/this-firefox" with your Firefox browser
+
+3, Click "Load Temporary Add-on"
+
+4, Select "manifest.json" in the unpacked folder
