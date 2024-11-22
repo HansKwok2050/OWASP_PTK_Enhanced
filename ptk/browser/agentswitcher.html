@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" name="viewport" />
+    <meta content="Penetration Testing Kit - cross-browser extension for penetration testing, now enhanced" name="description" />
+    <meta content="Penetration Testing Kit, request builder, traffic recording, macro recording" name="keywords" />
+    <meta content="PPType" name="author" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>OWASP Penetration Testing Kit: Enhanced - Directory Buster</title>
+
+    <script src="../packages/browser-polyfill/browser-polyfill.min.js"></script>
+    <script src="../packages/jquery/jquery.min.js"></script>
+    <script src="../packages/jquery/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="../packages/semantic-ui/semantic.min.css" type="text/css" />
+    <script src="../packages/semantic-ui/semantic.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/default.css" type="text/css" />
+    <script src="assets/js/menu.js"></script>
+    <script type="module" src="assets/js/agentswitcher.js"></script> <!-- New function by Kwok Wing Hong -->
+    <style>
+        .dataTables_info {
+            display: none;
+        }
+
+        .dataTables_wrapper .dataTables_filter {
+            float: right;
+            text-align: righ1t;
+        }
+
+        #tbl_cookies_filter {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="mainMenuWrapper">
+        <div class="ui segment clearing info_tab">
+            <div id="dashboard_message_text" class="ui left floated header short_message_text" style="width: calc(100vw - 145px);"></div>
+            <div class="ui left floated small header short_message_text"><label>On/Off</label></div>
+            <div class="ui toggle checkbox" style="padding-top: 11px"><input type="checkbox" id="enable_agentSwitcher"></div>
+        </div>
+    </div>
+
+    <div id="pagecontent" style="padding-top:120px">
+        <div class="ui small header" style="margin: 10px 20px">Choose an user agent:</div>
+        <select class="ui small header" id="agentPreset" name="agentPreset" style="position: relative; bottom: 30px; padding-left: 10px; margin-left: 20px; height: 30px; width: 300px; text-align: left;">
+            <option value="Your custom agent">Your custom agent</option>
+            <option value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246">Microsoft Edge (Desktop)</option>
+            <option value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36">Chrome (Desktop)</option>
+            <option value="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:126.0) Gecko/20100101 Firefox/126.0">Firefox (Desktop)</option>
+            <option value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/110.0.0.0">Opera (Desktop)</option>
+            <option value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9">Safari (Mac)</option>
+            <option value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.24">Microsoft Edge (Linux)</option>
+            <option value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36">Chrome (Linux)</option>
+            <option value="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0 XTPT/1.0">Firefox (Linux)</option>
+            <option value="Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36">Chrome (Chrome book)</option>
+            <option value="Mozilla/5.0 (Linux; Android 13; SM-A515F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36">Samsung Galaxy A51</option>
+            <option value="Mozilla/5.0 (Linux; Android 12; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36">Samsung Galaxy S10</option>
+            <option value="Mozilla/5.0 (iPhone14,3; U; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19A346 Safari/602.1">iPhone 13 Pro Max</option>
+            <option value="Mozilla/5.0 (iPhone13,2; U; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/15E148 Safari/602.1">iPhone 12</option>
+            <option value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/120.0.0.0 Safari/537.36">Headless Chrome</option>
+            <option value="curl/8.4.0">cURL</option>
+        </select>
+
+        <div class="ui small header" style="position: relative; bottom: 30px; margin: 0px 20px" id="scanning_url" >Enter your custom agent:</div>
+        <textarea id="agentCustom" class="ui medium input" style="position: relative; bottom: 30px; height: 40px;margin: 10px 20px; width: calc(100vw - 40px); padding-left: 10px; padding-right: 10px" spellcheck="false" placeholder="Custom agent"></textarea>
+    </div>
+</body>

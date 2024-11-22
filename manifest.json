@@ -1,0 +1,65 @@
+{
+  "author": "Denis Podgurskii and Kwok Wing Hong",
+  "name": "OWASP Penetration Testing Kit: Enhanced",
+  "short_name": "OWASP PTK: Enhanced",
+  "description": "OWASP Penetration Testing Kit: Enhanced",
+  "version": "8.8.2",
+  "manifest_version": 2,
+  "background": {
+    "page": "ptk/background.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "ptk/packages/browser-polyfill/browser-polyfill.min.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "ptk/content.js"
+      ],
+      "all_frames": false,
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "<all_urls>",
+    "activeTab",
+    "cookies",
+    "notifications",
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "scripting"
+  ],
+  "icons": {
+    "128": "ptk/browser/assets/images/icon.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "128": "ptk/browser/assets/images/icon.png"
+    },
+    "default_title": "OWASP Penetration Testing Kit: Enhanced",
+    "default_popup": "ptk/browser/index.html"
+  },
+  "options_ui": {
+    "page": "ptk/browser/settings.html",
+    "open_in_tab": false
+  },
+  "web_accessible_resources": [
+    "ptk/*.js",
+    "ptk/*.map",
+    "ptk/*.png",
+    "ptk/*.json"
+  ]
+}
